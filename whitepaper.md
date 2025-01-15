@@ -1,5 +1,6 @@
 # ActiveData: A Relational Intelligence Ecosystem
 
+SlappAI's contribution to humanity. 
 ---
 
 **Abstract**
