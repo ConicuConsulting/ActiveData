@@ -1,4 +1,4 @@
-# ActiveData: A Relational Intelligence Ecosystem**
+# ActiveData: A Relational Intelligence Ecosystem
 
 **Abstract**
 
