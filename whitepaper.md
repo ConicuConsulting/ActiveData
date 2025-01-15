@@ -825,24 +825,32 @@ ActiveData supports deployment across **AWS**, **Azure**, **GCP**, and **on-prem
 
 ---
 
-### **9.3. Scalability Diagram**
 
-```mermaid
-graph TD
-    Scale1["< 10K Nodes"]
-    Scale2["10K - 1M Nodes"]
-    Scale3["> 1M Nodes"]
+### **9.3. Architecture Flow Diagram**
 
-    Scale1 -->|Single Instance| VirtualMachine["Single VM / Container"]
-    Scale2 -->|Multi-Node Cloud| CloudCluster["Cloud/On-Prem Cluster"]
-    Scale3 -->|Distributed Cloud| Distributed["Distributed Global System"]
+The following diagram illustrates the high-level architecture of the **ActiveData** platform deployed on Microsoft Azure. It showcases the integration of various Azure services to ensure scalability, security, and seamless data management:
 
-    subgraph Deployment Tiers
-        VirtualMachine
-        CloudCluster
-        Distributed
-    end
-```
+![image](https://github.com/user-attachments/assets/d41023cf-279f-4d97-9b5e-182eb27c5799)
+
+#### **Key Components and Flow**:
+1. **Azure Front Door**:
+   - Acts as a global entry point to the system, ensuring high availability and low latency for web traffic.
+2. **Azure Web Application Firewall**:
+   - Protects the system from common exploits and attacks.
+3. **YouMatter Web App**:
+   - The core interface for end-users, providing access to ActiveData functionalities.
+4. **Azure API Management**:
+   - Manages all API requests and ensures efficient communication between services.
+5. **BePatientAPI Function App**:
+   - Executes the backend logic, facilitating dynamic queries and interactions.
+6. **Azure Cosmos DB**:
+   - Provides a globally distributed, scalable database for storing ActiveData nodes and relationships.
+7. **Azure Key Vault**:
+   - Ensures the secure management of API keys and sensitive information.
+8. **Azure Application Insights and Monitor**:
+   - Tracks logs and metrics, providing real-time monitoring and actionable insights.
+9. **Azure Blob Storage**:
+   - Handles unstructured data, including large datasets and file uploads.
 
 ---
 
@@ -954,7 +962,7 @@ ActiveData’s cloud-agnostic architecture ensures long-term flexibility:
 
 By offering multiple deployment options and scalability pathways, ActiveData ensures that organizations can tailor the system to meet their unique needs while remaining future-ready.
 
-![image](https://github.com/user-attachments/assets/d41023cf-279f-4d97-9b5e-182eb27c5799)
+
 
 ---
 
