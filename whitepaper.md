@@ -195,7 +195,7 @@ ActiveData is built using a cloud-agnostic architecture designed for scalability
 
 The following diagram illustrates these key components:
 
-![ActiveData Cloud Architecture Diagram](https://i.imgur.com/0V6z1rL.png)
+![image](https://github.com/user-attachments/assets/d41023cf-279f-4d97-9b5e-182eb27c5799)
 
 **10. Development Workflow: Building a Dynamic Future**
 
@@ -219,3 +219,27 @@ ActiveData is built using a modern CI/CD pipeline which enables for fast, iterat
 ActiveData is more than just a database; it's an ecosystem designed to redefine how we approach data. By emphasizing relationships, context, and adaptability, it provides a foundation for creating intelligent systems that empower users and organizations alike. With ActiveData, we're not just managing data; we're harnessing the power of relational intelligence to navigate an increasingly complex world.
 
 **Tagline:** “ActiveData: Redefining Relational Intelligence through Dynamic Hierarchies and Connections.”
+
+**12. Reference Material**
+
+The below articles are supporting documents of the SlappAI Relationmal Intelligence Ecosystem
+
+### Articles: 
+
+[SlappAI: Redefining Intelligence](https://medium.com/the-first-digit/slappai-redefining-intelligence-b8df6b16c4f8)
+[SlappAI: Active Graphs: The Foundation of Relational Intelligence](https://medium.com/the-first-digit/slappai-active-graphs-the-foundation-of-intelligence-89ec758005bc)
+[SlappAI: Active Graph Networks for Universal Intelligence](https://medium.com/@callum_26623/slappai-active-graph-networks-for-universal-intelligence-332dd6ce63dc)
+[SlappAI: ActiveShell Noun-Verb-Truth and the Radiance of Connection](https://medium.com/@callum_26623/genesis-noun-verb-truth-and-the-radiance-of-connection-12275f4e7a81)
+[SlappAI: Cube4D Structured Multi-Dimensional Data](https://medium.com/cognitive-driven-ai-the-future-of-relational/how-i-accidentally-uncovered-a-new-way-to-understand-perfect-numbers-while-building-4d-data-c8328ee98ee8)
+
+### GitHub Repositories
+
+[ActiveData](https://github.com/ConicuConsulting/ActiveData)
+[ActiveGraphs](https://github.com/ConicuConsulting/ActiveGraphNetworks)
+[ActiveShell](https://github.com/ConicuConsulting/ActiveShell)
+[Cube4D](https://github.com/ConicuConsulting/Cube4D---The-Final-Computer-Framework)
+
+
+
+
+
