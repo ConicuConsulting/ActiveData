@@ -104,6 +104,11 @@ To ensure scalability and adaptability, ActiveData includes several expandable m
 
 In traditional databases, entities are typically treated as static records, each with a defined role and fixed relationships. However, the real world is far more complex—individuals, objects, and entities often exist in multiple contexts simultaneously and change dynamically over time. **ActiveData's Node-Edge Duality** provides the flexibility and adaptability needed to model this complexity, enabling systems to capture both the fixed and evolving nature of relationships in real time.
 
+![image](https://github.com/user-attachments/assets/3fa0cba8-a9bd-4b72-9d3d-3fa7a08ac9d8)
+
+
+> *Figure 1: The 4D Structure of Cube4D showcasing the interaction of X, Y, Z axes and temporal adaptability, enabling dynamic relationship modeling and real-time insights.*
+
 ---
 
 ### **3.1. What is Node-Edge Duality?**
@@ -287,6 +292,10 @@ The Dynamic Relationship Expansion (DRE) framework plays a key role in refining 
 *   **Policy-Driven Refinement:** Contextual attributes define the parameters and conditions of specific relationships.
 *   **Adaptive Systems:** DRE frameworks are designed to capture data, and learn from the data to improve the understanding of relationships over time.
 
+![Screenshot 2024-11-06 at 12 48 17 PM](https://github.com/user-attachments/assets/ba1e2e5a-4c3d-4f43-9a0f-2e6fb5039bee)
+
+> *Figure 3: Expanded Active Graph Network illustrating nodes, relationships, and synthetically generated entities, demonstrating Cube4D's ability to model and adapt real-world complexity dynamically.*
+
 ---
 
 DRE provides the ability to create truly dynamic systems.
@@ -296,6 +305,10 @@ DRE provides the ability to create truly dynamic systems.
 ### **6. Data Ingestion and Transformation: From Raw Data to Relational Graphs**
 
 ActiveData’s ingestion and transformation pipeline is designed to seamlessly convert structured, semi-structured, and unstructured data into dynamic relational graphs. This process enables organizations to integrate data from diverse sources while preserving its context, relationships, and adaptability.
+
+![image](https://github.com/user-attachments/assets/898a128d-3c96-441d-93c2-26f1d11784a8)
+
+> *Figure 2: Bit structures derived from perfect numbers, demonstrating Cube4D's scalable approach to relational data processing using binary encoding for X, Y, Z, and Temporal dimensions.*
 
 ---
 
