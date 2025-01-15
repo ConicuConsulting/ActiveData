@@ -1,4 +1,4 @@
-**Whitepaper Title: ActiveData: A Relational Intelligence Ecosystem**
+# **Whitepaper Title: ActiveData: A Relational Intelligence Ecosystem**
 
 **Abstract**
 
