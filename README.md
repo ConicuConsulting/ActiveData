@@ -122,7 +122,7 @@ For detailed documentation, check out:
 ## Contact
 
 For questions, issues, or collaboration inquiries:
-- **Email**: support@activedata.io
+- **Email**: callum@youmatter.systems
 - **GitHub Issues**: [Report an Issue](https://github.com/ConicuConsulting/ActiveData/issues)
 
 ---
