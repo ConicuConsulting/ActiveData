@@ -139,26 +139,181 @@ ActiveData can ingest data from a variety of sources, including traditional RDBM
 
 **7. Workflow and Queries: Accessing Relational Intelligence**
 
-**7.1. Example ActiveShell Queries**
+Here’s an updated and expanded **ActiveShell Queries** section that follows the **Noun-Verb-Truth** syntax with PowerShell-style filtering and logic:
 
-ActiveShell offers a simple and effective method to access the data stored in ActiveGraph.
+---
 
-*   **Find all patients with a condition, in a specific location**:
+### **7.1. Example ActiveShell Queries**
 
-```
-Get-Node-Patient -Condition Cancer | Where-Object {$_.Location -eq 'Sydney'}
+ActiveShell offers a **Noun-Verb-Truth** approach, inspired by PowerShell’s simplicity and readability, enabling users to interact with the data stored in ActiveGraph effectively. Its syntax provides human-readable commands and leverages PowerShell-style filtering, sorting, and looping for intuitive data manipulation.
+
+---
+
+**Query 1: Find all patients with a specific condition, in a specific location**
+
+Retrieve all patients diagnosed with "Cancer" who are located in "Sydney":
+
+```powershell
+Get-Node -Type Patient | Where-Object { $_.Condition -eq 'Cancer' -and $_.Location -eq 'Sydney' }
 ```
 
-*   **Find all conditions within a specific category**:
+---
+
+**Query 2: Find all conditions within a specific category**
+
+List all conditions that fall under the "Chronic Disease" category:
+
+```powershell
+Get-Node -Type Condition | Where-Object { $_.Category -eq 'Chronic Disease' }
 ```
-MATCH (c:Condition)-[:MEMBER_OF]->(cat:Category {name: "Chronic Disease"})
-RETURN c
+
+---
+
+**Query 3: Find patients with a symptom of a certain condition**
+
+Retrieve all patients showing the symptom "Fatigue" for a condition:
+
+```powershell
+Get-Node -Type Patient | Where-Object { $_.Symptoms -contains 'Fatigue' }
 ```
-*   **Find patients with a symptom of a certain condition**:
+
+---
+
+**Query 4: Add a new patient to the graph**
+
+Add a new patient to the database with specified attributes:
+
+```powershell
+New-Node -Type Patient -Attributes @{ 
+    Name = 'John Doe'; 
+    Age = 45; 
+    Gender = 'Male'; 
+    Condition = 'Diabetes'; 
+    Location = 'Melbourne' 
+}
 ```
-MATCH (p:Patient)-[:MEMBER_OF]->(c:Condition)-[:HAS]->(s:Symptom {name: "Fatigue"})
-RETURN p
+
+---
+
+**Query 5: Update a patient's contact information**
+
+Update the phone number and email address of a specific patient:
+
+```powershell
+Update-Node -Type Patient -Id 123 | Set-Property -Phone '0400-123-456' -Email 'john.doe@example.com'
 ```
+
+---
+
+**Query 6: Delete a patient record**
+
+Remove a patient record by their unique ID:
+
+```powershell
+Remove-Node -Type Patient -Id 123
+```
+
+---
+
+**Query 7: Summarize patient demographics for a condition**
+
+Aggregate patient demographics, such as gender and average age, for "Hypertension":
+
+```powershell
+Get-Node -Type Patient | Where-Object { $_.Condition -eq 'Hypertension' } | Group-Object -Property Gender | ForEach-Object {
+    [PSCustomObject]@{
+        Gender = $_.Name
+        AverageAge = ($_.Group | Measure-Object -Property Age -Average).Average
+        TotalPatients = $_.Count
+    }
+}
+```
+
+---
+
+**Query 8: Loop through patients and alert based on age**
+
+Iterate through all patients and print a warning if their age exceeds 65:
+
+```powershell
+Get-Node -Type Patient | ForEach-Object {
+    if ($_.Age -gt 65) {
+        Write-Warning "Patient $_.Name is over 65 years old!"
+    }
+}
+```
+
+---
+
+**Query 9: Find relationships dynamically between patients and conditions**
+
+Extract all relationships between patients and their conditions:
+
+```powershell
+Get-Relationship -Type MemberOf | Where-Object { $_.SourceType -eq 'Patient' -and $_.TargetType -eq 'Condition' }
+```
+
+---
+
+**Query 10: Identify overlapping conditions among patients**
+
+Find conditions shared by multiple patients:
+
+```powershell
+Get-Node -Type Patient | ForEach-Object {
+    $_.Conditions | Group-Object | Where-Object { $_.Count -gt 1 } | ForEach-Object {
+        Write-Output "Condition $_.Name is shared by $_.Count patients."
+    }
+}
+```
+
+---
+
+**Query 11: Find patients within a geographical radius**
+
+Retrieve all patients within a 50 km radius of "Melbourne":
+
+```powershell
+Get-Node -Type Patient | Where-Object { $_.Location -within 50km of 'Melbourne' }
+```
+
+---
+
+**Query 12: Create a custom relationship between nodes**
+
+Create a new relationship between a doctor and a patient:
+
+```powershell
+New-Relationship -SourceId 789 -TargetId 123 -Type 'Treats'
+```
+
+---
+
+**Query 13: Search for patients by multiple conditions**
+
+Retrieve patients with either "Diabetes" or "Hypertension":
+
+```powershell
+Get-Node -Type Patient | Where-Object { $_.Condition -in @('Diabetes', 'Hypertension') }
+```
+
+---
+
+**Query 14: Chain filters for advanced queries**
+
+Find patients in "Sydney" older than 60 with "Arthritis":
+
+```powershell
+Get-Node -Type Patient | Where-Object { $_.Location -eq 'Sydney' -and $_.Age -gt 60 -and $_.Condition -eq 'Arthritis' }
+```
+
+---
+
+### **Why ActiveShell?**
+
+ActiveShell enables seamless CRUD (Create, Read, Update, Delete) operations while maintaining human-readable syntax and flexibility. Its integration with filtering, sorting, and looping logic allows complex queries to be expressed succinctly and executed efficiently. 
+
+This approach ensures a consistent and accessible interface for all users, from non-technical staff to advanced data analysts.
 
 These queries are just some examples of what can be achieved using the ActiveShell syntax.
 
