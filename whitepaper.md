@@ -865,16 +865,83 @@ Reduces memory and compute costs by:
 
 ---
 
-### **9.5. Security and Compliance**
-ActiveData includes features to ensure compliance with data security standards such as GDPR, HIPAA, and CCPA:
-- **Data Encryption**: All data is encrypted in transit and at rest.
-- **Fine-Grained Access Control**: Permissions are tied to graph relationships (e.g., patients can only access their own records).
-- **Audit Trails**: Comprehensive logging and auditing of all data access and modifications.
+### 9.5 Security and Compliance
 
-![image](https://github.com/user-attachments/assets/3f78ee02-aee1-4676-b1cc-61b8d7fedaa1)
+**ActiveData** is designed with a robust focus on security, compliance, and user privacy, ensuring it adheres to global data protection standards such as **GDPR**, **HIPAA**, and **CCPA**. Below, we detail the critical features and protocols implemented to meet these stringent requirements:
 
-![image](https://github.com/user-attachments/assets/2a37b14a-6ba8-4ee1-b95f-26c5b7c89572)
+---
 
+#### **Data Encryption**
+All data within the ActiveData ecosystem is secured through advanced encryption techniques:
+- **In Transit:** ActiveData uses **TLS 1.3** for encrypting data as it moves across the network, ensuring secure communication between clients and servers.
+- **At Rest:** Sensitive information is encrypted using industry-standard algorithms such as **AES-256**, protecting data stored within databases and files.
+  
+*This guarantees that unauthorized access is prevented even if the data is intercepted or the storage medium is compromised.*
+
+---
+
+#### **Fine-Grained Access Control**
+ActiveData employs **granular permissions** tied directly to graph relationships, ensuring data is only accessible to authorized users:
+- **Role-Based Access Control (RBAC):** Permissions are assigned based on user roles, such as *doctor*, *nurse*, or *patient*.
+- **Attribute-Based Access Control (ABAC):** Policies are enforced based on user attributes like department, time of access, and location.
+- **Policy-Based Access Control (PBAC):** Dynamic rules evaluate contextual conditions (e.g., "Allow emergency access to doctors if patient condition is critical").
+
+![Identity and Access Management Overview](https://github.com/user-attachments/assets/2a37b14a-6ba8-4ee1-b95f-26c5b7c89572)
+
+---
+
+#### **Audit Trails and Monitoring**
+ActiveData provides comprehensive logging and auditing capabilities to track and monitor all interactions:
+- **Data Access Logs:** Detailed records of who accessed or modified which data, ensuring accountability and transparency.
+- **Audit Trails:** Logs include metadata like timestamps, user actions, and device details to detect unauthorized or suspicious activity.
+- **Anomaly Detection:** Integration with **Azure Monitor** and **Application Insights** provides real-time detection of potential security breaches.
+
+---
+
+#### **RBAC and ABAC Implementation**
+The following diagram showcases a real-world example of **RBAC** and **ABAC** implementation in ActiveData for healthcare scenarios:
+
+![Security and Role Management Workflow](https://github.com/user-attachments/assets/3f78ee02-aee1-4676-b1cc-61b8d7fedaa1)
+
+---
+
+#### **Use Case: Policy Enforcement for Patient Data**
+Example policy for a **doctor accessing patient records in emergencies**:
+
+```python
+def check_access(user, patient_record):
+    # Validate if the user has RBAC access
+    if user.role in patient_record.RBAC:
+        return True
+    
+    # Check ABAC conditions (e.g., on duty, department match)
+    if user.department == patient_record.Department and user.is_on_duty:
+        return True
+    
+    # Apply PBAC rules (e.g., emergency override)
+    if user.role == "doctor" and patient_record.condition == "critical":
+        return True
+    
+    # Deny access otherwise
+    return False
+```
+
+---
+
+#### **Compliance Monitoring**
+ActiveData supports **multi-factor authentication (MFA)** and adaptive security protocols to comply with security mandates. Features include:
+1. **Least Privilege Principle:** Only essential permissions are granted.
+2. **Conflict of Interest Management:** Ensures no single user can perform conflicting tasks without oversight.
+3. **Regular Policy Review:** Automated alerts highlight outdated or overly permissive rules for immediate review and revision.
+
+---
+
+#### **Scalability of Security**
+ActiveData’s compliance and security mechanisms scale seamlessly with the size of the dataset and number of users:
+- **Hierarchical Roles:** Higher-level roles inherit permissions from lower-level roles, streamlining access management.
+- **Decentralized Encryption:** Nodes encrypt sensitive data at the source, ensuring localized protection across distributed environments.
+
+With these advanced security and compliance measures, **ActiveData** ensures your organization can operate confidently in even the most regulated industries.
 
 ---
 
