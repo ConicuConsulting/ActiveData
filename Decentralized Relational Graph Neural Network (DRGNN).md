@@ -1,4 +1,4 @@
-**Decentralized Relational Graph Neural Network (DRGNN)**
+**Decentralized Relational Graph Neural Network (DRGNN)** - Draft PoC
 
 **Abstract**
 
