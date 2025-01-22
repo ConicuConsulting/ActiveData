@@ -106,7 +106,7 @@ Fraud detection in financial systems often relies on identifying anomalous relat
 
 **References**
 
-1. Callum Maystone’s work on Relational Graph Neural Networks using Neo4j and NetworkX.
+1. Callum Maystone’s work on Active Graph Networks: https://github.com/ConicuConsulting/ActiveGraphNetworks
 2. Nano documentation: https://docs.nano.org/
 3. Pippin documentation: https://github.com/appditto/pippin_nano_wallet
 
